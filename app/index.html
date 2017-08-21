@@ -30,7 +30,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <h1>Landscape Document PDF</h1>
+        <h1>USER INPUT</h1>
 
 
 
@@ -44,17 +44,39 @@
         <script async src="js/scripts.js"></script>
         <script type="text/javascript">
             function simplePDF(){
-                var doc = new jsPDF("landscape");
-                doc.text(20, 20, 'Welcome to landscape Document');
-                doc.text(20, 30, 'This create a document in landscape mode');
-                doc.addPage();
-                doc.text(20, 20, 'Do you like that?');
 
-                doc.save('landscapeDocument.pdf');
+                var name = prompt('Whats your name?');
+                var multiplier = prompt('Enter a number');
+                multiplier = parseInt(multiplier);
+
+
+                var doc = new jsPDF();
+                doc.setFontSize(22);
+                doc.text(20, 20, 'Question');
+                doc.setFontSize(16);
+                doc.text(20, 30, 'This belongs to:' + name);
+
+                for(var i=1; i<=12; i++)
+                {
+                    doc.text(20, 30 + (i * 10), i + 'x' + multiplier + '= _________');
+                }
+
+                doc.addPage();
+                doc.setFontSize(22);
+                doc.text(20, 20, 'Answers');
+                doc.setFontSize(16);
+
+                for(var i=1; i<=12; i++)
+                {
+                    doc.text(20, 30 + (i * 10), i + 'x' + multiplier + ' = ' + (i + multiplier));
+                }
+
+
+                doc.save('userInput.pdf');
             }
         </script>
 
-        <a href="javascript:simplePDF()">Save PDF</a>
+        <a href="javascript:simplePDF()">Save Input PDF</a>
         <hr>
 
 

@@ -30,7 +30,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <h1>Simple two-page text Document</h1>
+        <h1>Landscape Document PDF</h1>
 
 
 
@@ -42,17 +42,15 @@
 
         <script src="js/main.js"></script>
         <script async src="js/scripts.js"></script>
-        <script>
-
+        <script type="text/javascript">
             function simplePDF(){
-                var doc = new jsPDF();
-                doc.text(20, 20, 'Hello world!');
-                doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+                var doc = new jsPDF("landscape");
+                doc.text(20, 20, 'Welcome to landscape Document');
+                doc.text(20, 30, 'This create a document in landscape mode');
                 doc.addPage();
                 doc.text(20, 20, 'Do you like that?');
 
-                doc.save('test.pdf');
-
+                doc.save('landscapeDocument.pdf');
             }
         </script>
 

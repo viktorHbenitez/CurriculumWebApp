@@ -29,10 +29,57 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <h2 class="text-center">PDF From HTML</h2>
 
-        <h1>USER INPUT</h1>
+        <div id="pdf2htmldiv" class="container">
+            <!--ADD_PAGE-->
+            <p class="text-center">Welcome to the most esiest way to convert html to pdf file</p>
 
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Tienda</th>
+                    <th class="telefono">Telefono</th>
+                    <th>Domicilio</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>GNC Sport City Puebla</td>
+                    <td>222-225-0001</td>
+                    <td>Blvd. Del Niño Poblano # 2510 Loc. 103-S Col. Concepción de la Cruz, Puebla. C.P. 72450</td>
+                </tr>
+                <tr>
+                    <td>Angelópolis, Pue</td>
+                    <td>222-225-0001</td>
+                    <td>Lateral Sur # 905 Loc. 4 Col. Reserva Territorial Atlixcáyotl. San Andrés Cholula, Puebla. C.P. 72470</td>
+                </tr>
+                <tr>
+                    <td>Triángulo Las Ánimas, Pue.</td>
+                    <td>222-169-8219</td>
+                    <td>Circuito Juan Pablo II # 3515 Loc. 36 Col. Las Ánimas. Puebla, Pue. C.P. 72400</td>
+                </tr>
+                <tr>
+                    <td>Zavaleta</td>
+                    <td>222-284-5861</td>
+                    <td>Calzada Zavaleta # 2519 entre Fresnos y Campestre Loc. E-1 Col. Santa Cruz Buenavista. Puebla. Pue. C.P. 72120</td>
+                </tr>
+                <tr>
+                    <td>GNC Walmart Prol. Reforma, Pue.</td>
+                    <td>222-249-8507</td>
+                    <td>Av. Prolongación Reforma Sur No. 3117 Loc. 17, Col. La Paz, Puebla.</td>
+                </tr>
+                <tr>
+                    <td>La Paz, Pue.</td>
+                    <td>222-226-7004</td>
+                    <td>Av. Juárez No. 2927 Loc. 1, Col. La Paz, Pue.</td>
+                </tr>
 
+                </tbody>
+            </table>
+            <a class="btn btn-primary" href="javascript:pdfToHTML()">html2PDf</a>
+
+        </div>
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -42,46 +89,9 @@
 
         <script src="js/main.js"></script>
         <script async src="js/scripts.js"></script>
-        <script type="text/javascript">
-            function simplePDF(){
-
-                var name = prompt('Whats your name?');
-                var multiplier = prompt('Enter a number');
-                multiplier = parseInt(multiplier);
-
-
-                var doc = new jsPDF();
-                doc.setFontSize(22);
-                doc.text(20, 20, 'Question');
-                doc.setFontSize(16);
-                doc.text(20, 30, 'This belongs to:' + name);
-
-                for(var i=1; i<=12; i++)
-                {
-                    doc.text(20, 30 + (i * 10), i + 'x' + multiplier + '= _________');
-                }
-
-                doc.addPage();
-                doc.setFontSize(22);
-                doc.text(20, 20, 'Answers');
-                doc.setFontSize(16);
-
-                for(var i=1; i<=12; i++)
-                {
-                    doc.text(20, 30 + (i * 10), i + 'x' + multiplier + ' = ' + (i + multiplier));
-                }
-
-
-                doc.save('userInput.pdf');
-            }
-        </script>
-
-        <a href="javascript:simplePDF()">Save Input PDF</a>
-        <hr>
-
-
-
         <script src="js/jspdf.js"></script>
+        <script src="js/jquery-2.1.3.js"></script>
+        <script src="js/pdfFromHTML.js"></script>
 
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -1,4 +1,34 @@
 $(document).ready(function() {
+
+    var app = new Vue({
+       el: '#vm',
+        data:{
+           usuario:{
+               name: '',
+               lastName: '',
+               email: '',
+               phone: '',
+               address: '',
+               objetivo: ''
+           },
+            software:[],
+            skill: null,
+            experiences: [
+                'Estudiante', 'Principiante', 'Con Experiencia', 'Gerente', 'Ejecutivo'
+            ],
+            sector: null,
+            sectores:[
+                'Administración', 'Computación', 'Contabilidad', 'Alimentos y bebidas'
+            ]
+        },
+        methods:{
+           mostrarNombre: function () {
+               return this.usuario.name + ' ' + this.usuario.lastName
+           }
+        }
+    });
+
+
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
@@ -34,6 +64,20 @@ $(document).ready(function() {
                     },
                     emailAddress: {
                         message: 'Please supply a valid email address'
+                    }
+                }
+            },
+            skill: {
+                validators: {
+                    notEmpty: {
+                        message: 'Por favor introduzca su nivel de experiencia'
+                    }
+                }
+            },
+            sector: {
+                validators: {
+                    notEmpty: {
+                        message: 'Por favor introduzca un sector profesional al que pertenezca'
                     }
                 }
             },

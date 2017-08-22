@@ -1,0 +1,94 @@
+
+
+/*INDICAR TAMANO ANCHO MINIMO APLIQUE ESTILOS*/
+@mixin tablet{
+  @media only screen and (min-width: #{$tablet}){
+    @content;  // Como un inicializador de la funcion
+
+  }
+}
+
+@mixin desktop{
+  @media only screen and (min-width: #{$desktop}){
+    @content;
+
+  }
+}
+
+@mixin landscape{
+  @media only screen and (min-width: #{$landscape}){
+    @content;
+
+  }
+}
+
+/*USAR CUANDO USAMOS FLOATS EN NUESTROS ELEMENTOS*/
+@mixin clearFix{  // ayuda a resolver el problema de tener elementos float en nuestro projecto
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/* BORDER RADIUS A LOS ELEMENTOS HTML*/
+@mixin border-radius($border){
+  border-radius: $border;
+}
+
+/*AGREGA ESTILOS A LAS IMAGENES DE FONDO*/
+@mixin imagenFondoDegradado($imagen, $height: 100vh, $bgPos: center center){
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.6)), url($imagen);  // Agrega un degradado bottom
+  background-repeat: no-repeat;
+  background-position: $bgPos;
+  background-size: cover;
+  height: $height;
+
+}
+@mixin imagenFondo($imagen, $height: 100vh, $bgPos: center center){
+  background: url($imagen);  // Agrega un degradado bottom
+  background-repeat: no-repeat;
+  background-position: $bgPos;
+  background-size: cover;
+  height: $height;
+
+}
+
+@mixin imagenPortait($imagen,  $bgPos: center center){
+  background: url($imagen);  // Agrega un degradado bottom
+  background-repeat: no-repeat;
+  background-position: $bgPos;
+  background-size: cover;
+  height: 70vh;
+
+
+}
+
+
+/* mixin para la GALERIA DE IMAGENES */
+@mixin gridImagenes($cantidad, $margin){  // cambia el tamano de los margenes dependiendo de el numero de imagen indicado
+  width: ((100% - (($cantidad - 1) * $margin)) / $cantidad);
+  &:nth-child(n){
+    margin-right: $margin;
+    margin-bottom: $margin;
+  }
+  &:nth-child(#{$cantidad}n + 1){
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
+
+
+/*BOX - SIZING
+usar cuando tenemos ejem:  RESPETE EL ANCHO DEFINIDO
+.mydiv{
+  width:100px;
+  paddin 20px;
+}
+*/
+@mixin border-box{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+

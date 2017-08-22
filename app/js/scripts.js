@@ -1,5 +1,35 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 $(document).ready(function() {
+
+    var app = new Vue({
+       el: '#vm',
+        data:{
+           usuario:{
+               name: '',
+               lastName: '',
+               email: '',
+               phone: '',
+               address: '',
+               objetivo: ''
+           },
+            software:[],
+            skill: null,
+            experiences: [
+                'Estudiante', 'Principiante', 'Con Experiencia', 'Gerente', 'Ejecutivo'
+            ],
+            sector: null,
+            sectores:[
+                'Administración', 'Computación', 'Contabilidad', 'Alimentos y bebidas'
+            ]
+        },
+        methods:{
+           mostrarNombre: function () {
+               return this.usuario.name + ' ' + this.usuario.lastName
+           }
+        }
+    });
+
+
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
@@ -35,6 +65,20 @@ $(document).ready(function() {
                     },
                     emailAddress: {
                         message: 'Please supply a valid email address'
+                    }
+                }
+            },
+            skill: {
+                validators: {
+                    notEmpty: {
+                        message: 'Por favor introduzca su nivel de experiencia'
+                    }
+                }
+            },
+            sector: {
+                validators: {
+                    notEmpty: {
+                        message: 'Por favor introduzca un sector profesional al que pertenezca'
                     }
                 }
             },

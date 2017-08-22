@@ -13,3 +13,9 @@ https://github.com/MrRio/jsPDF
 
 Exporting PDF with jspdf not rendering CSS
 https://stackoverflow.com/questions/25946275/exporting-pdf-with-jspdf-not-rendering-css
+
+jq-idealForms
+https://github.com/elclanrs/jq-idealforms
+
+Create form with bootstrap
+https://codepen.io/jaycbrf/pen/iBszr/

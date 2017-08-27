@@ -19,3 +19,6 @@ https://github.com/elclanrs/jq-idealforms
 
 Create form with bootstrap
 https://codepen.io/jaycbrf/pen/iBszr/
+
+Create an rectangule with html only
+https://codepen.io/arturheinze/pen/ZGvOMw

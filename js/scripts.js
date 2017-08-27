@@ -9,8 +9,13 @@ $(document).ready(function() {
                email: '',
                phone: '',
                address: '',
-               objetivo: ''
+               educacion:'',
+               experiencia:'',
+               objetivo: '',
            },
+            enableBtnPDf: false,
+            Softwarelenguage:[],
+            image: '',
             software:[],
             skill: null,
             experiences: [
@@ -22,9 +27,38 @@ $(document).ready(function() {
             ]
         },
         methods:{
+           limpiar: function () {
+
+               this.usuario.objetivo = ' ';
+               this.usuario.experiencia = ' ';
+               this.usuario.educacion = ' ';
+               this.usuario.name = ' ';
+               this.usuario.lastName = ' ';
+               this.usuario.phone = ' ';
+               this.usuario.address = ' ';
+               this.usuario.email = ' ';
+           },
            mostrarNombre: function () {
                return this.usuario.name + ' ' + this.usuario.lastName
-           }
+           },onFileChange(e) {
+                var files = e.target.files || e.dataTransfer.files;
+                if (!files.length)
+                    return;
+                this.createImage(files[0]);
+            },
+            createImage(file) {
+                var image = new Image();
+                var reader = new FileReader();
+                var vm = this;
+
+                reader.onload = (e) => {
+                    vm.image = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            },
+            removeImage: function (e) {
+                this.image = '';
+            }
         }
     });
 
@@ -134,8 +168,8 @@ $(document).ready(function() {
                 validators: {
                     stringLength: {
                         min: 10,
-                        max: 200,
-                        message:'Please enter at least 10 characters and no more than 200'
+                        max: 300,
+                        message:'Por favor introduce mas de 20 letras y un maximo de 300'
                     },
                     notEmpty: {
                         message: 'Please supply a description of your project'

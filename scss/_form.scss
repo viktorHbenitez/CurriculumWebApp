@@ -4,8 +4,56 @@
 
 .form-group{
   margin-bottom: 10px!important;
+  margin-top: 10px!important;
 }
 
 .mensaje{
   white-space: pre;
 }
+
+#avatar{
+  /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+  //background-image: url('http://i.stack.imgur.com/Dj7eP.jpg');
+  //
+  //img{
+  //
+  //  /* make a square container */
+  //  width: 150px;
+  //  height: 150px;
+  //
+  //  /* fill the container, preserving aspect ratio, and cropping to fit */
+  //  background-size: cover;
+  //
+  //  /* center the image vertically and horizontally */
+  //  background-position: center;
+  //
+  //  /* round the edges to a circle with border radius 1/2 container size */
+  //  border-radius: 50%;
+  //
+  //}
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px!important;
+  background-color: #1b6d85;
+  color: whitesmoke;
+
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
